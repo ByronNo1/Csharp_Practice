@@ -10,6 +10,8 @@ namespace _02_IF_ESLE
     {
         static void Main(string[] args)
         {
+
+
             //Console.WriteLine("請輸入名字");
             //string name = Console.ReadLine();
 
@@ -38,44 +40,46 @@ namespace _02_IF_ESLE
             //    Console.WriteLine("你沒名字喔!");
             //}
 
-            //try
-            //{
-                Console.WriteLine("計算BMI");
-                Console.WriteLine("請輸入身高cm");
-                double Tall;
-                string tmpStr = Console.ReadLine();
-                Tall = Convert.ToDouble(tmpStr);
-                Console.WriteLine("請輸入體重 kg");
-                double weight;
-                tmpStr = Console.ReadLine();
-                weight = Convert.ToDouble(tmpStr);
+            ////try
+            ////{
+            //    Console.WriteLine("計算BMI");
+            //    Console.WriteLine("請輸入身高cm");
+            //    double Tall;
+            //    string tmpStr = Console.ReadLine();
+            //    Tall = Convert.ToDouble(tmpStr);
+            //    Console.WriteLine("請輸入體重 kg");
+            //    double weight;
+            //    tmpStr = Console.ReadLine();
+            //    weight = Convert.ToDouble(tmpStr);
 
-                if (/*Tall > 0 && */ Tall > 10)
-                {
-                    double BMI = 0;
-                    Tall = Tall / 100;
-                    //BMI = weight / Tall * Tall;
-                    BMI = weight / (Tall * Tall);
-                    // Console.WriteLine("你的BMI:" + BMI);
+            //    if (/*Tall > 0 && */ Tall > 10)
+            //    {
+            //        double BMI = 0;
+            //        Tall = Tall / 100;
+            //        //BMI = weight / Tall * Tall;
+            //        BMI = weight / (Tall * Tall);
+            //        // Console.WriteLine("你的BMI:" + BMI);
                     
-                    Console.WriteLine("你的BMI:" + BMI.ToString("0.###"));  //BMI = 22.1119; 四捨五入 BMI = 22.112
-                }
-                else
-                {
-                    Console.WriteLine("身高輸入錯誤:" + Tall);
-                }
+            //        Console.WriteLine("你的BMI:" + BMI.ToString("0.###"));  //BMI = 22.1119; 四捨五入 BMI = 22.112
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("身高輸入錯誤:" + Tall);
+            //    }
 
 
-            //}
-            //catch (Exception Ex)
-            //{
-            //    //Console.WriteLine("有錯誤有錯誤:" + Ex);
-            //    Console.WriteLine("有錯誤有錯誤:" + Ex.Message);
-            //}
-           
-           
+            ////}
+            ////catch (Exception Ex)
+            ////{
+            ////    //Console.WriteLine("有錯誤有錯誤:" + Ex);
+            ////    Console.WriteLine("有錯誤有錯誤:" + Ex.Message);
+            ////}
 
 
+            Console.WriteLine("請輸入名字");
+            string nameA = Console.ReadLine();
+            nameA = nameA == "帥哥" ? "自稱'帥哥'你要臉嗎??" : nameA + ",您好!" ;
+            Console.WriteLine(nameA);
 
             Console.ReadKey();
 
