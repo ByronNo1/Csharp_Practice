@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-集合", "02-集合\02-�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-委派", "04-委派\04-委派.csproj", "{1F9BCE88-0AD2-4828-B564-59A6083F1763}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-擴充方式", "05-擴充方式\05-擴充方式.csproj", "{564DCA98-E839-4180-A03F-DE85E0533D5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{1F9BCE88-0AD2-4828-B564-59A6083F1763}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F9BCE88-0AD2-4828-B564-59A6083F1763}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F9BCE88-0AD2-4828-B564-59A6083F1763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{564DCA98-E839-4180-A03F-DE85E0533D5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{564DCA98-E839-4180-A03F-DE85E0533D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{564DCA98-E839-4180-A03F-DE85E0533D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{564DCA98-E839-4180-A03F-DE85E0533D5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
