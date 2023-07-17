@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-FORM", "01-FORM\01-FORM.csproj", "{C84758C8-82EC-499B-A7F1-2DF2DE484F66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-ComboBox-ListBox", "02-\02-ComboBox-ListBox.csproj", "{8C247894-286A-4AB2-8C18-0AA6EF9B54D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C84758C8-82EC-499B-A7F1-2DF2DE484F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C84758C8-82EC-499B-A7F1-2DF2DE484F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C84758C8-82EC-499B-A7F1-2DF2DE484F66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C247894-286A-4AB2-8C18-0AA6EF9B54D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C247894-286A-4AB2-8C18-0AA6EF9B54D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C247894-286A-4AB2-8C18-0AA6EF9B54D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C247894-286A-4AB2-8C18-0AA6EF9B54D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

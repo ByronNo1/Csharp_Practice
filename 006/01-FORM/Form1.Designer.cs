@@ -92,7 +92,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 1024);
+            this.ClientSize = new System.Drawing.Size(636, 1024);
             this.Controls.Add(this.btnHideOPEN);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.textBox1);
