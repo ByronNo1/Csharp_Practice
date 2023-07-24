@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnLoadExcel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -44,6 +44,10 @@
             this.chart_02 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataGViewExcel_02 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnLINQ_03_05 = new System.Windows.Forms.Button();
+            this.chkB_03 = new System.Windows.Forms.CheckBox();
+            this.grpB_03 = new System.Windows.Forms.GroupBox();
+            this.btnLINQ_03_04 = new System.Windows.Forms.Button();
             this.btnLINQ_03_03 = new System.Windows.Forms.Button();
             this.dataGViewResult_03 = new System.Windows.Forms.DataGridView();
             this.btnLINQ_03_02 = new System.Windows.Forms.Button();
@@ -53,10 +57,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.listBoxLog = new System.Windows.Forms.ListBox();
-            this.btnLINQ_03_04 = new System.Windows.Forms.Button();
-            this.btnLINQ_03_05 = new System.Windows.Forms.Button();
-            this.grpB_03 = new System.Windows.Forms.GroupBox();
-            this.chkB_03 = new System.Windows.Forms.CheckBox();
+            this.btnTEST04 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_01)).BeginInit();
@@ -66,6 +67,7 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewResult_03)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_03)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLoadExcel
@@ -182,18 +184,18 @@
             // 
             // chart_02
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart_02.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart_02.Legends.Add(legend6);
+            chartArea2.Name = "ChartArea1";
+            this.chart_02.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart_02.Legends.Add(legend2);
             this.chart_02.Location = new System.Drawing.Point(3, 219);
             this.chart_02.Name = "chart_02";
             this.chart_02.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart_02.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart_02.Series.Add(series2);
             this.chart_02.Size = new System.Drawing.Size(1762, 648);
             this.chart_02.TabIndex = 1;
             this.chart_02.Text = "chart1";
@@ -227,6 +229,46 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnLINQ_03_05
+            // 
+            this.btnLINQ_03_05.Location = new System.Drawing.Point(1781, 813);
+            this.btnLINQ_03_05.Name = "btnLINQ_03_05";
+            this.btnLINQ_03_05.Size = new System.Drawing.Size(238, 50);
+            this.btnLINQ_03_05.TabIndex = 8;
+            this.btnLINQ_03_05.Text = "LINQ 05";
+            this.btnLINQ_03_05.UseVisualStyleBackColor = true;
+            this.btnLINQ_03_05.Click += new System.EventHandler(this.btnLINQ_03_05_Click);
+            // 
+            // chkB_03
+            // 
+            this.chkB_03.AutoSize = true;
+            this.chkB_03.Location = new System.Drawing.Point(1805, 276);
+            this.chkB_03.Name = "chkB_03";
+            this.chkB_03.Size = new System.Drawing.Size(106, 22);
+            this.chkB_03.TabIndex = 0;
+            this.chkB_03.Text = "開啟條件";
+            this.chkB_03.UseVisualStyleBackColor = true;
+            this.chkB_03.CheckedChanged += new System.EventHandler(this.chkB_03_CheckedChanged);
+            // 
+            // grpB_03
+            // 
+            this.grpB_03.Location = new System.Drawing.Point(1785, 316);
+            this.grpB_03.Name = "grpB_03";
+            this.grpB_03.Size = new System.Drawing.Size(234, 491);
+            this.grpB_03.TabIndex = 9;
+            this.grpB_03.TabStop = false;
+            this.grpB_03.Text = "where";
+            // 
+            // btnLINQ_03_04
+            // 
+            this.btnLINQ_03_04.Location = new System.Drawing.Point(1805, 220);
+            this.btnLINQ_03_04.Name = "btnLINQ_03_04";
+            this.btnLINQ_03_04.Size = new System.Drawing.Size(215, 50);
+            this.btnLINQ_03_04.TabIndex = 7;
+            this.btnLINQ_03_04.Text = "LINQ 04";
+            this.btnLINQ_03_04.UseVisualStyleBackColor = true;
+            this.btnLINQ_03_04.Click += new System.EventHandler(this.btnLINQ_03_04_Click);
             // 
             // btnLINQ_03_03
             // 
@@ -292,6 +334,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btnTEST04);
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(2023, 873);
@@ -320,45 +363,15 @@
             this.listBoxLog.Size = new System.Drawing.Size(2027, 200);
             this.listBoxLog.TabIndex = 3;
             // 
-            // btnLINQ_03_04
+            // btnTEST04
             // 
-            this.btnLINQ_03_04.Location = new System.Drawing.Point(1805, 220);
-            this.btnLINQ_03_04.Name = "btnLINQ_03_04";
-            this.btnLINQ_03_04.Size = new System.Drawing.Size(215, 50);
-            this.btnLINQ_03_04.TabIndex = 7;
-            this.btnLINQ_03_04.Text = "LINQ 04";
-            this.btnLINQ_03_04.UseVisualStyleBackColor = true;
-            this.btnLINQ_03_04.Click += new System.EventHandler(this.btnLINQ_03_04_Click);
-            // 
-            // btnLINQ_03_05
-            // 
-            this.btnLINQ_03_05.Location = new System.Drawing.Point(1781, 813);
-            this.btnLINQ_03_05.Name = "btnLINQ_03_05";
-            this.btnLINQ_03_05.Size = new System.Drawing.Size(238, 50);
-            this.btnLINQ_03_05.TabIndex = 8;
-            this.btnLINQ_03_05.Text = "LINQ 05";
-            this.btnLINQ_03_05.UseVisualStyleBackColor = true;
-            this.btnLINQ_03_05.Click += new System.EventHandler(this.btnLINQ_03_05_Click);
-            // 
-            // grpB_03
-            // 
-            this.grpB_03.Location = new System.Drawing.Point(1785, 316);
-            this.grpB_03.Name = "grpB_03";
-            this.grpB_03.Size = new System.Drawing.Size(234, 491);
-            this.grpB_03.TabIndex = 9;
-            this.grpB_03.TabStop = false;
-            this.grpB_03.Text = "where";
-            // 
-            // chkB_03
-            // 
-            this.chkB_03.AutoSize = true;
-            this.chkB_03.Location = new System.Drawing.Point(1805, 276);
-            this.chkB_03.Name = "chkB_03";
-            this.chkB_03.Size = new System.Drawing.Size(106, 22);
-            this.chkB_03.TabIndex = 0;
-            this.chkB_03.Text = "開啟條件";
-            this.chkB_03.UseVisualStyleBackColor = true;
-            this.chkB_03.CheckedChanged += new System.EventHandler(this.chkB_03_CheckedChanged);
+            this.btnTEST04.Location = new System.Drawing.Point(1691, 60);
+            this.btnTEST04.Name = "btnTEST04";
+            this.btnTEST04.Size = new System.Drawing.Size(256, 126);
+            this.btnTEST04.TabIndex = 0;
+            this.btnTEST04.Text = "Speed 比較";
+            this.btnTEST04.UseVisualStyleBackColor = true;
+            this.btnTEST04.Click += new System.EventHandler(this.btnTEST04_Click);
             // 
             // Form1
             // 
@@ -379,6 +392,7 @@
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewResult_03)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_03)).EndInit();
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -411,6 +425,7 @@
         private System.Windows.Forms.Button btnLINQ_03_05;
         private System.Windows.Forms.CheckBox chkB_03;
         private System.Windows.Forms.GroupBox grpB_03;
+        private System.Windows.Forms.Button btnTEST04;
     }
 }
 

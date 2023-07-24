@@ -778,6 +778,49 @@ namespace _06_EXCEL
             }
         }
 
+        private void btnTEST04_Click(object sender, EventArgs e)
+        {
+            List<double> list1 = new List<double>();
+            List<double> list2 = new List<double>();
+            List<double> list3 = new List<double>();
+
+            for (int i = 0; i < 10000; i++)
+            {
+                list1.Add( i + i + i * 0.02 - 0.0005 * i);
+                list2.Add(i*.8 + i + i * 0.51 + 0.0045 * i);
+            }
+
+            DateTime T1 = DateTime.Now;
+
+            for (int i = 0; i < list1.Count; i++)
+            {
+                list3.Add(list2[i] - list1[i]);
+            }
+
+           MessageBox.Show(DateTime.Now.Subtract(T1).TotalMilliseconds.ToString());
+            T1 = DateTime.Now;
+            var V1 = list1.Select((d, index) => new { value = d, idx = index++ });
+            var V2 = list2.Select((d, index) => new { value = d, idx = index++ });
+
+            var V3 = (from L1 in V1
+                               from L2 in V2
+                               where L1.idx == L2.idx
+                               select (L2.value - L1.value));
+
+            MessageBox.Show(DateTime.Now.Subtract(T1).TotalMilliseconds.ToString());
+            T1 = DateTime.Now;
+            List<double> list4 = new List<double>();
+            //list4 = V3.ToList();
+            foreach (var item in V3)
+            {
+               // list4.Add(item);
+            }
+
+            MessageBox.Show(DateTime.Now.Subtract(T1).TotalMilliseconds.ToString());
+
+        }
+
+
     }
 
 
