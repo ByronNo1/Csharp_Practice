@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnLoadExcel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -55,9 +55,11 @@
             this.btnLoad03 = new System.Windows.Forms.Button();
             this.dataGViewExcel_03 = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnTEST04 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.listBoxLog = new System.Windows.Forms.ListBox();
-            this.btnTEST04 = new System.Windows.Forms.Button();
+            this.btnLoadExcel_05 = new System.Windows.Forms.Button();
+            this.dataGViewExcel_05 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_01)).BeginInit();
@@ -68,6 +70,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewResult_03)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_03)).BeginInit();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_05)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLoadExcel
@@ -184,18 +188,18 @@
             // 
             // chart_02
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart_02.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_02.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            this.chart_02.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart_02.Legends.Add(legend3);
             this.chart_02.Location = new System.Drawing.Point(3, 219);
             this.chart_02.Name = "chart_02";
             this.chart_02.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart_02.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart_02.Series.Add(series3);
             this.chart_02.Size = new System.Drawing.Size(1762, 648);
             this.chart_02.TabIndex = 1;
             this.chart_02.Text = "chart1";
@@ -342,8 +346,20 @@
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // btnTEST04
+            // 
+            this.btnTEST04.Location = new System.Drawing.Point(154, 72);
+            this.btnTEST04.Name = "btnTEST04";
+            this.btnTEST04.Size = new System.Drawing.Size(256, 126);
+            this.btnTEST04.TabIndex = 0;
+            this.btnTEST04.Text = "Speed 比較";
+            this.btnTEST04.UseVisualStyleBackColor = true;
+            this.btnTEST04.Click += new System.EventHandler(this.btnTEST04_Click);
+            // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.dataGViewExcel_05);
+            this.tabPage5.Controls.Add(this.btnLoadExcel_05);
             this.tabPage5.Location = new System.Drawing.Point(4, 28);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(2023, 873);
@@ -363,15 +379,26 @@
             this.listBoxLog.Size = new System.Drawing.Size(2027, 200);
             this.listBoxLog.TabIndex = 3;
             // 
-            // btnTEST04
+            // btnLoadExcel_05
             // 
-            this.btnTEST04.Location = new System.Drawing.Point(1691, 60);
-            this.btnTEST04.Name = "btnTEST04";
-            this.btnTEST04.Size = new System.Drawing.Size(256, 126);
-            this.btnTEST04.TabIndex = 0;
-            this.btnTEST04.Text = "Speed 比較";
-            this.btnTEST04.UseVisualStyleBackColor = true;
-            this.btnTEST04.Click += new System.EventHandler(this.btnTEST04_Click);
+            this.btnLoadExcel_05.Location = new System.Drawing.Point(1789, 3);
+            this.btnLoadExcel_05.Name = "btnLoadExcel_05";
+            this.btnLoadExcel_05.Size = new System.Drawing.Size(220, 89);
+            this.btnLoadExcel_05.TabIndex = 1;
+            this.btnLoadExcel_05.Text = "Load Excel";
+            this.btnLoadExcel_05.UseVisualStyleBackColor = true;
+            this.btnLoadExcel_05.Click += new System.EventHandler(this.btnLoadExcel_05_Click);
+            // 
+            // dataGViewExcel_05
+            // 
+            this.dataGViewExcel_05.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGViewExcel_05.Location = new System.Drawing.Point(7, 0);
+            this.dataGViewExcel_05.Name = "dataGViewExcel_05";
+            this.dataGViewExcel_05.ReadOnly = true;
+            this.dataGViewExcel_05.RowHeadersWidth = 62;
+            this.dataGViewExcel_05.RowTemplate.Height = 31;
+            this.dataGViewExcel_05.Size = new System.Drawing.Size(1776, 867);
+            this.dataGViewExcel_05.TabIndex = 2;
             // 
             // Form1
             // 
@@ -393,6 +420,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewResult_03)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_03)).EndInit();
             this.tabPage4.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_05)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,6 +455,8 @@
         private System.Windows.Forms.CheckBox chkB_03;
         private System.Windows.Forms.GroupBox grpB_03;
         private System.Windows.Forms.Button btnTEST04;
+        private System.Windows.Forms.DataGridView dataGViewExcel_05;
+        private System.Windows.Forms.Button btnLoadExcel_05;
     }
 }
 

@@ -16,6 +16,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using NPOI.SS.Formula.Functions;
 using System.Security.Cryptography;
 using NPOI.Util;
+using System.Data.OleDb;
 
 namespace _06_EXCEL
 {
@@ -631,7 +632,7 @@ namespace _06_EXCEL
                 {
                     OutDataTable = null;
                 }
-                
+
             }
             else
             {
@@ -714,7 +715,7 @@ namespace _06_EXCEL
                 }
 
             }
-            
+
             if (result != null)
             {
                 dataGViewResult_03.DataSource = result.Copy();
@@ -786,8 +787,8 @@ namespace _06_EXCEL
 
             for (int i = 0; i < 10000; i++)
             {
-                list1.Add( i + i + i * 0.02 - 0.0005 * i);
-                list2.Add(i*.8 + i + i * 0.51 + 0.0045 * i);
+                list1.Add(i + i + i * 0.02 - 0.0005 * i);
+                list2.Add(i * .8 + i + i * 0.51 + 0.0045 * i);
             }
 
             DateTime T1 = DateTime.Now;
@@ -797,15 +798,15 @@ namespace _06_EXCEL
                 list3.Add(list2[i] - list1[i]);
             }
 
-           MessageBox.Show(DateTime.Now.Subtract(T1).TotalMilliseconds.ToString());
+            MessageBox.Show(DateTime.Now.Subtract(T1).TotalMilliseconds.ToString());
             T1 = DateTime.Now;
             var V1 = list1.Select((d, index) => new { value = d, idx = index++ });
             var V2 = list2.Select((d, index) => new { value = d, idx = index++ });
 
             var V3 = (from L1 in V1
-                               from L2 in V2
-                               where L1.idx == L2.idx
-                               select (L2.value - L1.value));
+                      from L2 in V2
+                      where L1.idx == L2.idx
+                      select (L2.value - L1.value));
 
             MessageBox.Show(DateTime.Now.Subtract(T1).TotalMilliseconds.ToString());
             T1 = DateTime.Now;
@@ -813,12 +814,101 @@ namespace _06_EXCEL
             //list4 = V3.ToList();
             foreach (var item in V3)
             {
-               // list4.Add(item);
+                // list4.Add(item);
             }
 
             MessageBox.Show(DateTime.Now.Subtract(T1).TotalMilliseconds.ToString());
 
         }
+
+        private void btnLoadExcel_05_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+
+                string fileName = Application.StartupPath + "\\" + "001.xlsx";
+                OpenFileDialog openFileDialog = new OpenFileDialog()
+                {
+                    InitialDirectory = Application.StartupPath,
+                    Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*"
+                };
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    fileName = openFileDialog.FileName;
+                    DataTable dataTable = LoadExcelOBDCAsDataTable(fileName);
+                    if (dataGViewExcel_05.Visible && dataTable != null)
+                    {
+                        dataGViewExcel_05.DataSource = dataTable;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+            
+            }
+        }
+
+
+        public static DataTable LoadExcelOBDCAsDataTable(string _xlsFilename)
+        {
+            //https://zhuanlan.zhihu.com/p/566423292
+            //调试代码，在conn.Open打开链接时出错。修改链接字符串，调试发现可能Excel版本问题，Exce连接字符串版本是xls(2003或以前版本），更改为Excel2007版本则正常导入。
+
+            //strConn = "Provider=Microsoft.Jet.OleDb.4.0;" + "data source=" + Server.MapPath("ExcelFiles/MyExcelFile.xls") + ";Extended Properties='Excel 8.0; HDR=Yes; IMEX=1'"; //此连接只能操作Excel2003或之前版本(.xls)文件
+            //改为
+            //strConn = "Provider=Microsoft.Ace.OleDb.12.0;" + "data source=" + Server.MapPath("ExcelFiles/Mydata2007.xlsx") + ";Extended Properties='Excel 12.0; HDR=Yes; IMEX=1'"; //此连接可以操作.xls与.xlsx文件 (同时支持Excel2003 和 Excel2007 的连接字符串)
+
+            //如果不能使用ace.oledb.12.0, 则要先安装Microsoft Database Engine会修复错误。 此代码适用于Office 2010 / 2013。
+           // try
+            {
+                string xlsFilename = Path.Combine(
+                                    Path.GetPathRoot(_xlsFilename),
+                                   "TEMP_" + Path.GetFileName(_xlsFilename)
+                                    );
+                File.Copy(_xlsFilename, xlsFilename, true);
+
+                string strConn;
+              //   strConn = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + xlsFilename + ";" + "Extended Properties=Excel 8.0;";
+                 strConn = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + xlsFilename + ";" + "Extended Properties='Excel 12.0;'";
+                System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection(strConn);
+                conn.Open();
+
+                string strExcel = "";
+                OleDbDataAdapter myCommand = null;
+                DataTable table = new DataTable();
+              
+                strExcel = "select * from [sheet1$]";
+                myCommand = new OleDbDataAdapter(strExcel, strConn);
+                //DataSet ds = null; ds = new DataSet();
+                //myCommand.Fill(ds, "table1");
+                myCommand.Fill(table);
+                // success
+                return table;
+
+            }
+         //   catch (Exception)
+            //{
+
+            //    throw;
+            //}
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
