@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnLoadExcel = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.TabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnTEST01 = new System.Windows.Forms.Button();
             this.dataGViewExcel_01 = new System.Windows.Forms.DataGridView();
@@ -57,10 +57,15 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btnTEST04 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.listBoxLog = new System.Windows.Forms.ListBox();
-            this.btnLoadExcel_05 = new System.Windows.Forms.Button();
             this.dataGViewExcel_05 = new System.Windows.Forms.DataGridView();
-            this.tabControl1.SuspendLayout();
+            this.btnLoadExcel_05 = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btnLoad06 = new System.Windows.Forms.Button();
+            this.dataGViewExcel_06 = new System.Windows.Forms.DataGridView();
+            this.listBoxLog = new System.Windows.Forms.ListBox();
+            this.btnLINQ_06_01 = new System.Windows.Forms.Button();
+            this.dataGViewExcel_06_02 = new System.Windows.Forms.DataGridView();
+            this.TabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_01)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -72,6 +77,9 @@
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_05)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_06)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_06_02)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLoadExcel
@@ -84,18 +92,19 @@
             this.btnLoadExcel.UseVisualStyleBackColor = true;
             this.btnLoadExcel.Click += new System.EventHandler(this.btnLoadExcel_Click);
             // 
-            // tabControl1
+            // TabControlMain
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(1, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(2031, 905);
-            this.tabControl1.TabIndex = 1;
+            this.TabControlMain.Controls.Add(this.tabPage1);
+            this.TabControlMain.Controls.Add(this.tabPage2);
+            this.TabControlMain.Controls.Add(this.tabPage3);
+            this.TabControlMain.Controls.Add(this.tabPage4);
+            this.TabControlMain.Controls.Add(this.tabPage5);
+            this.TabControlMain.Controls.Add(this.tabPage6);
+            this.TabControlMain.Location = new System.Drawing.Point(1, 12);
+            this.TabControlMain.Name = "TabControlMain";
+            this.TabControlMain.SelectedIndex = 0;
+            this.TabControlMain.Size = new System.Drawing.Size(2031, 905);
+            this.TabControlMain.TabIndex = 1;
             // 
             // tabPage1
             // 
@@ -188,18 +197,18 @@
             // 
             // chart_02
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart_02.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart_02.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.chart_02.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart_02.Legends.Add(legend2);
             this.chart_02.Location = new System.Drawing.Point(3, 219);
             this.chart_02.Name = "chart_02";
             this.chart_02.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart_02.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart_02.Series.Add(series2);
             this.chart_02.Size = new System.Drawing.Size(1762, 648);
             this.chart_02.TabIndex = 1;
             this.chart_02.Text = "chart1";
@@ -367,6 +376,61 @@
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // dataGViewExcel_05
+            // 
+            this.dataGViewExcel_05.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGViewExcel_05.Location = new System.Drawing.Point(7, 0);
+            this.dataGViewExcel_05.Name = "dataGViewExcel_05";
+            this.dataGViewExcel_05.ReadOnly = true;
+            this.dataGViewExcel_05.RowHeadersWidth = 62;
+            this.dataGViewExcel_05.RowTemplate.Height = 31;
+            this.dataGViewExcel_05.Size = new System.Drawing.Size(1776, 867);
+            this.dataGViewExcel_05.TabIndex = 2;
+            // 
+            // btnLoadExcel_05
+            // 
+            this.btnLoadExcel_05.Location = new System.Drawing.Point(1789, 3);
+            this.btnLoadExcel_05.Name = "btnLoadExcel_05";
+            this.btnLoadExcel_05.Size = new System.Drawing.Size(220, 89);
+            this.btnLoadExcel_05.TabIndex = 1;
+            this.btnLoadExcel_05.Text = "Load Excel";
+            this.btnLoadExcel_05.UseVisualStyleBackColor = true;
+            this.btnLoadExcel_05.Click += new System.EventHandler(this.btnLoadExcel_05_Click);
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.dataGViewExcel_06_02);
+            this.tabPage6.Controls.Add(this.btnLINQ_06_01);
+            this.tabPage6.Controls.Add(this.btnLoad06);
+            this.tabPage6.Controls.Add(this.dataGViewExcel_06);
+            this.tabPage6.Location = new System.Drawing.Point(4, 28);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(2023, 873);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // btnLoad06
+            // 
+            this.btnLoad06.Location = new System.Drawing.Point(1804, 6);
+            this.btnLoad06.Name = "btnLoad06";
+            this.btnLoad06.Size = new System.Drawing.Size(215, 50);
+            this.btnLoad06.TabIndex = 5;
+            this.btnLoad06.Text = "LOAD CSV";
+            this.btnLoad06.UseVisualStyleBackColor = true;
+            this.btnLoad06.Click += new System.EventHandler(this.btnLoad06_Click);
+            // 
+            // dataGViewExcel_06
+            // 
+            this.dataGViewExcel_06.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGViewExcel_06.Location = new System.Drawing.Point(-4, 0);
+            this.dataGViewExcel_06.Name = "dataGViewExcel_06";
+            this.dataGViewExcel_06.ReadOnly = true;
+            this.dataGViewExcel_06.RowHeadersWidth = 62;
+            this.dataGViewExcel_06.RowTemplate.Height = 31;
+            this.dataGViewExcel_06.Size = new System.Drawing.Size(878, 867);
+            this.dataGViewExcel_06.TabIndex = 4;
+            // 
             // listBoxLog
             // 
             this.listBoxLog.BackColor = System.Drawing.Color.Black;
@@ -379,26 +443,26 @@
             this.listBoxLog.Size = new System.Drawing.Size(2027, 200);
             this.listBoxLog.TabIndex = 3;
             // 
-            // btnLoadExcel_05
+            // btnLINQ_06_01
             // 
-            this.btnLoadExcel_05.Location = new System.Drawing.Point(1789, 3);
-            this.btnLoadExcel_05.Name = "btnLoadExcel_05";
-            this.btnLoadExcel_05.Size = new System.Drawing.Size(220, 89);
-            this.btnLoadExcel_05.TabIndex = 1;
-            this.btnLoadExcel_05.Text = "Load Excel";
-            this.btnLoadExcel_05.UseVisualStyleBackColor = true;
-            this.btnLoadExcel_05.Click += new System.EventHandler(this.btnLoadExcel_05_Click);
+            this.btnLINQ_06_01.Location = new System.Drawing.Point(1804, 71);
+            this.btnLINQ_06_01.Name = "btnLINQ_06_01";
+            this.btnLINQ_06_01.Size = new System.Drawing.Size(215, 198);
+            this.btnLINQ_06_01.TabIndex = 6;
+            this.btnLINQ_06_01.Text = "Row_Number() OVER (PARTITION BY inst ORDER BY id) AS rn";
+            this.btnLINQ_06_01.UseVisualStyleBackColor = true;
+            this.btnLINQ_06_01.Click += new System.EventHandler(this.btnLINQ_06_01_Click);
             // 
-            // dataGViewExcel_05
+            // dataGViewExcel_06_02
             // 
-            this.dataGViewExcel_05.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGViewExcel_05.Location = new System.Drawing.Point(7, 0);
-            this.dataGViewExcel_05.Name = "dataGViewExcel_05";
-            this.dataGViewExcel_05.ReadOnly = true;
-            this.dataGViewExcel_05.RowHeadersWidth = 62;
-            this.dataGViewExcel_05.RowTemplate.Height = 31;
-            this.dataGViewExcel_05.Size = new System.Drawing.Size(1776, 867);
-            this.dataGViewExcel_05.TabIndex = 2;
+            this.dataGViewExcel_06_02.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGViewExcel_06_02.Location = new System.Drawing.Point(890, 0);
+            this.dataGViewExcel_06_02.Name = "dataGViewExcel_06_02";
+            this.dataGViewExcel_06_02.ReadOnly = true;
+            this.dataGViewExcel_06_02.RowHeadersWidth = 62;
+            this.dataGViewExcel_06_02.RowTemplate.Height = 31;
+            this.dataGViewExcel_06_02.Size = new System.Drawing.Size(892, 867);
+            this.dataGViewExcel_06_02.TabIndex = 7;
             // 
             // Form1
             // 
@@ -406,10 +470,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2088, 1148);
             this.Controls.Add(this.listBoxLog);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.TabControlMain);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.tabControl1.ResumeLayout(false);
+            this.TabControlMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_01)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -422,6 +486,9 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_05)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_06)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGViewExcel_06_02)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -429,7 +496,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnLoadExcel;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl TabControlMain;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGViewExcel_01;
@@ -457,6 +524,11 @@
         private System.Windows.Forms.Button btnTEST04;
         private System.Windows.Forms.DataGridView dataGViewExcel_05;
         private System.Windows.Forms.Button btnLoadExcel_05;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Button btnLoad06;
+        private System.Windows.Forms.DataGridView dataGViewExcel_06;
+        private System.Windows.Forms.Button btnLINQ_06_01;
+        private System.Windows.Forms.DataGridView dataGViewExcel_06_02;
     }
 }
 

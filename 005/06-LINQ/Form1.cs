@@ -17,6 +17,8 @@ using NPOI.SS.Formula.Functions;
 using System.Security.Cryptography;
 using NPOI.Util;
 using System.Data.OleDb;
+using System.Collections;
+using Org.BouncyCastle.Ocsp;
 
 namespace _06_EXCEL
 {
@@ -898,16 +900,170 @@ namespace _06_EXCEL
 
         }
 
+        private void btnLoad06_Click(object sender, EventArgs e)
+        {
+            string fileName = "";
+            OpenFileDialog openFileDialog = new OpenFileDialog()
+            {
+                InitialDirectory = Application.StartupPath,
+                Filter = "excel files (*.csv)|*.csv|All files (*.*)|*.*"
+
+            };
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fileName = openFileDialog.FileName;
+                DataTable dataTableTemp = LoadCSVAsDataTable(fileName);
+                DataTable dataTable = new DataTable();
+
+                string _str = "";
+                for (int i = 0; i < dataTableTemp.Columns.Count; i++)
+                {
+                    if (dataTableTemp.Rows.Count > 0)
+                    {
+                        DataColumn column = new DataColumn();
+                        column.ColumnName = dataTableTemp.Columns[i].ColumnName.ToUpper();
+                        _str = dataTableTemp.Rows[0][i] == null ? "" : dataTableTemp.Rows[0][i].ToString();
 
 
+                        if (double.TryParse(_str, out _))
+                        {
+                            column.DataType = typeof(double);
+                        }
+                        else if (int.TryParse(_str, out _))
+                        {
+                            column.DataType = typeof(int);
+                        }
+                        else if (DateTime.TryParse(_str, out _))
+                        {
+                            column.DataType = typeof(DateTime);
+                        }
+                        else
+                        {
+                            column.DataType = typeof(string);
+                        }
+
+                        dataTable.Columns.Add(column);
+                    }
+                }
+
+                object[] Objs = new object[dataTableTemp.Columns.Count];
+                int tmpInt = 0;
+
+                var Result = dataTableTemp.AsEnumerable().Select(
+                    d =>
+                    {
+                        double tmpDou = 0;
+                        DateTime DT;
+                        Objs = new object[dataTableTemp.Columns.Count];
+                        for (int i = 0; i < Objs.Length; i++)
+                        {
+                            if (dataTable.Columns[i].DataType == typeof(string))
+                            {
+                                Objs[i] = d.Field<string>(i);
+                            }
+                            else if (dataTable.Columns[i].DataType == typeof(int))
+                            {
+                                if (int.TryParse(d.Field<string>(i), out tmpInt))
+                                {
+                                    Objs[i] = Convert.ToInt32(tmpInt);
+                                }
+                                else
+                                {
+                                    Objs[i] = 0;
+                                }
+                            }
+                            else if (dataTable.Columns[i].DataType == typeof(double))
+                            {
+                                if (double.TryParse(d.Field<string>(i), out tmpDou))
+                                {
+                                    Objs[i] = Convert.ToInt32(tmpDou);
+                                }
+                                else
+                                {
+                                    Objs[i] = 0;
+                                }
+
+                            }
+                            else if (dataTable.Columns[i].DataType == typeof(DateTime))
+                            {
+                                if (DateTime.TryParse(d.Field<string>(i), out DT))
+                                {
+                                    Objs[i] = DT;
+                                }
+                                else
+                                {
+                                    Objs[i] = Convert.ToDateTime("1970/01/01");
+                                }
+                            }
+                        }
 
 
+                        return Objs;
+                    }
+                    );
+
+                foreach (var item in Result)
+                {
+                    dataTable.Rows.Add(item);
+                }
+
+                if (dataGViewExcel_06.Visible && dataTable != null)
+                {
+                    dataGViewExcel_06.DataSource = dataTable.Copy();
+                }
+                
+
+            }
+
+        }
+
+        private void btnLINQ_06_01_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable = dataGViewExcel_06.DataSource as DataTable;
+            List<double> Chart_x = new List<double>();
+
+            if (dataTable != null)
+            {
+               // var XResult = dataTable.AsEnumerable().GroupBy(b => new { EQPMODEL = b.Field<string>("EQPMODEL"), EQPID = b.Field<string>("POWER") } )
+                var XResult = dataTable.AsEnumerable().GroupBy(b => new { EQPMODEL = b.Field<string>("EQPMODEL") } )
+       .                SelectMany(g => g.OrderBy(c => c.Field<string>("EQPID")).
+                        Select((b, i) => new { EQPID= b.Field<string>("EQPID"), EQPMODEL = b.Field<string>("EQPMODEL"), POWER = b.Field<string>("POWER"), rn = i + 1 }));
+                DataTable dataTableB = new DataTable();
+
+                DataColumn dataColumn = new DataColumn();
+                dataColumn.ColumnName = "EQPID";
+                dataColumn.DataType = typeof(string);
+                dataTableB.Columns.Add(dataColumn);
+                dataColumn = new DataColumn();
+                dataColumn.ColumnName = "EQPMODEL";
+                dataColumn.DataType = typeof(string);
+                dataTableB.Columns.Add(dataColumn);
+                dataColumn = new DataColumn();
+                dataColumn.ColumnName = "POWER";
+                dataColumn.DataType = typeof(string);
+                dataTableB.Columns.Add(dataColumn);
+                dataColumn = new DataColumn();
+                dataColumn.ColumnName = "idx";
+                dataColumn.DataType = typeof(decimal);
+                dataTableB.Columns.Add(dataColumn);
+
+                foreach (var item in XResult)
+                {
+                    dataTableB.Rows.Add(new object[] { item.EQPID, item.EQPMODEL, item.POWER , item.rn });
+                }
+
+                dataGViewExcel_06_02.DataSource = dataTableB;
+
+               // var results = XResult.ToList();
+            }
+
+    
+      
+
+          
 
 
-
-
-
-
+        }
 
 
 
